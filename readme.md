@@ -49,7 +49,9 @@ kubectl apply -f k8s/iam/aws-auth-cm.yaml
 
 ## Step 4: Deploy a Load Balancer
 Deploy a stack of _cf-templates/load-balancer.yaml_. 
-
+```
+aws cloudformation deploy --stack-name LoadBalancerStack --template-file cf-templates/load-balancer.yaml
+```
 The stack creates the resources:
 * An Application load balancer with the specified scheme. 
 * A security group attached to the ALB that accepts all incoming traffic
