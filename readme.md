@@ -19,7 +19,9 @@ Specify to create 0, 1 or 3 NAT-Gateways. NAT-Gateways are coupled to subnets, t
 
 ## Step 2: Create an EKS Cluster
 Deploy a stack of _cf-templates/eks-cluster.yaml_. For the purpose of this workshop, name the stack _MyClusterStack_ and use the default parameter values.
-
+```
+aws cloudformation deploy --stack-name MyClusterStack --template-file cf-templates/eks-cluster.yaml 
+```
 The stack creates the resources:
 * An EKS Cluster with a security group and service role 
 * A security group to be used by the nodegroups
@@ -29,6 +31,9 @@ The stack creates the resources:
 Head to your terminal and update your context by adding the created Cluster:
 ```
 aws eks --region YOUR_REGION update-kubeconfig --name YOUR_CLUSTERNAME
+```
+```
+aws eks --region YOUR_REGION update-kubeconfig --name MyCluster
 ```
 
 Verify you can connect to the created cluster:
